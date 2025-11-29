@@ -18,7 +18,7 @@ void TinhTrungBinhTongSoChiaHetCho3() {
 	int count = 0;
 	//duyet mang
 	for (i = 0; i < n; i++) {
-		if (mang[i] % 3 == 0) {
+		if (mang[i] % 3 == 0){
 			tong += mang[i];
 			count++;
 		}
@@ -34,6 +34,50 @@ void TinhTrungBinhTongSoChiaHetCho3() {
 	}
 	return 0;
 }
+void sapxepmang1chieu() {
+	int integerArray[100];
+	int tmp;//temperary
+	int i;
+		int length;
+		printf("nhap so luong phan tu mang: ");
+		scanf_s("%d", &length);
+		//scanf_s neu bi loi
+		printf("nhap du lieu mang %d phan tu\n", length);
+		for (i = 0; i < length; i++) {
+			printf("mang[%d] = ", i);
+			scanf_s("%d", integerArray[i]);
+		}
+		printf("nhap du lieu mang %d phan tu\n", length);
+		for (i = 0; i < length - 1; i++) {
+			if (integerArray[i] > integerArray[i + 1]) {
+				tmp = integerArray[i];
+				integerArray[i + 1] = integerArray[i];
+				integerArray[i] = tmp;
+				i = -1;
+			}
+		}	
+		
+		printf("nhap du lieu mang %d phan tu\n", length);
+		for (i = 0; i < length - 1; i++) {
+			if (integerArray[i] > integerArray[i + 1]) {
+				tmp = integerArray[i];
+				integerArray[i + 1] = integerArray[i];
+				integerArray[i] = tmp;
+				i = -1;
+			}
+		}	
+		
+		printf("nhap du lieu mang %d phan tu\n", length);
+		for (i = 0; i < length - 1; i++) {
+			if (integerArray[i] > integerArray[i + 1]) {
+				tmp = integerArray[i];
+				integerArray[i + 1] = integerArray[i];
+				integerArray[i] = tmp;
+				i = -1;
+			}
+		}	
+		
+}
 void lapChucNang(int chonChucNang)
 {
 	int tiepTuc = 1;
@@ -43,6 +87,9 @@ void lapChucNang(int chonChucNang)
 		{
 		case 1:
 			TinhTrungBinhTongSoChiaHetCho3();
+			break;
+		case 2:
+			sapxepmang1chieu();
 			break;
 
 		case 0:
@@ -68,7 +115,7 @@ int main()
 		printf("\n");
 		printf("1. TinhTrungBinhTongSoChiaHetCho3");
 		printf("\n");
-		printf("2. chuc nang chua cap nhat");
+		printf("2. sap xeo mang 1 chieu thu tu tang dan");
 		printf("\n");
 		printf("Hay chon CN [0-2]: ");
 		scanf("%d", &chonChucNang);
