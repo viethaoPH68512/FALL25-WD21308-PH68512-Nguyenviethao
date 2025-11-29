@@ -207,13 +207,73 @@ void SapXepThongTinSinhVien() {
     while (i == 1)
     {
        
+        char hoTen[100][50];   
+        float diem[100];       
+        char hocLuc[100][20];  
+        int n;
 
+        printf("Nhap so luong sinh vien: ");
+        scanf("%d", &n);
+        getchar();
+        for (int i = 0; i < n; i++) {
+            printf("\nNhap thong tin sinh vien thu %d:\n", i + 1);
+
+            printf("Ho va ten: ");
+            fgets(hoTen[i], sizeof(hoTen[i]), stdin);
+            hoTen[i][strcspn(hoTen[i], "\n")] = 0; 
+
+            printf("Diem: ");
+            scanf("%f", &diem[i]);
+            getchar(); 
+
+            if (diem[i] >= 9.0)
+                strcpy(hocLuc[i], "Xuat sac");
+            else if (diem[i] >= 8.0)
+                strcpy(hocLuc[i], "Gioi");
+            else if (diem[i] >= 6.5)
+                strcpy(hocLuc[i], "Kha");
+            else if (diem[i] >= 5.0)
+                strcpy(hocLuc[i], "Trung binh");
+            else
+                strcpy(hocLuc[i], "Yeu");
+        }
+
+        // sap xep giam dan
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (diem[i] < diem[j]) {
+                    // doi diem
+                    float tempDiem = diem[i];
+                    diem[i] = diem[j];
+                    diem[j] = tempDiem;
+
+                    // doi ten
+                    char tempTen[50];
+                    strcpy(tempTen, hoTen[i]);
+                    strcpy(hoTen[i], hoTen[j]);
+                    strcpy(hoTen[j], tempTen);
+
+                    // doi hoc luc
+                    char tempHocLuc[20];
+                    strcpy(tempHocLuc, hocLuc[i]);
+                    strcpy(hocLuc[i], hocLuc[j]);
+                    strcpy(hocLuc[j], tempHocLuc);
+                }
+            }
+        }
+
+        // danh sach
+        printf("\n%-25s %-6s %-12s\n", "Ho va ten", "Diem", "Hoc luc");
+        for (int i = 0; i < n; i++) {
+            printf("%-25s %-6.2f %-12s\n", hoTen[i], diem[i], hocLuc[i]);
+        }
+    }
         return 0;
         printf("Ban dang o chuc nang: SapXepThongTinSinhVien\n");
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
         scanf("%d", &i);
         system("cls");
-    }
+    
 }
 void XayDungGameFPOLY_LOTT() {
     int i = 1;
