@@ -314,6 +314,43 @@ void demomang1chieu() {
 	printf("%d", array[3]); printf("\n");
 
 }
+void demomang2chieu() {
+	//string - "string.h"
+	//'' luu mot ky tu
+	//"" luu nhieu ky tu
+	char kytu = 'a';
+	char mangkytu[10] = "HAO";
+	for (int i = 0; i < 3; i++) {
+		scanf(" %c", &mangkytu[i]);
+	}
+	//fgest(mangkytu)
+	/*for (int i = 0; i<3; i++)
+	{
+	printf("%c", mangkytu[i]);
+	}*/
+	puts(mangkytu);
+	int array[2][3];
+	// array[2][3] : 2 dong, 3 cot.
+	// so truoc la so đong
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 3; j++) {
+			printf("mang tai [%d] \[%d] la: ", i,j);
+			scanf("%d", &array[i][j]);
+			
+		}
+		 
+	}
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 3; j++) {
+			printf("%d, ", array[i][j]);
+			// co the thay bang ("%d, ", array[i][j]
+			
+			
+		}
+		printf("\n");
+	}
+
+}
 int main()
 {
 	int chon;
@@ -332,6 +369,7 @@ int main()
 		printf("9. sochinhphuong "); printf("\n");
 		printf("10.lapchucnang "); printf("\n");
 		printf("11.mang1chieu "); printf("\n");
+		printf("12.mang2chieu "); printf("\n");
 		printf("0. thoat "); printf("\n");
 		printf("vui long chon chuc nang: ");
 		scanf("%d", &chon);
@@ -368,8 +406,12 @@ int main()
 		case 9:
 			chuongtrinhxaydungsochinhphuong();
 			break;
-		case 10:
+	
+		case 11:
 				demomang1chieu();
+				break;
+		case 12:
+				demomang2chieu();
 				break;
 			case 0:
 				printf("Thoat chuong trinh\n");
