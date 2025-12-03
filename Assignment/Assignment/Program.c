@@ -8,41 +8,39 @@ void KiemTraSoNguyen() {
     int i = 1;
     while (i == 1)
     {
+        printf("( Ban dang o chuc nang: kiem tra so nguyen )\n\n");
         double x;
-        printf("Nhap mot so: ");
+        printf("Hay nhap mot so de kiem tra: ");
         scanf("%lf", &x);
         // Kiem tra so nguye
         if (x == (int)x) {
-            printf("So nay la so nguyen.\n");
+            printf("So nay la so nguyen\n");
             int n = (int)x;
             // Kt so nguyen to
             if (n < 2) {
-                printf("Khong phai so nguyen to.\n");
+                printf("Khong phai so nguyen to\n");
             }
             else {
-                int laNguyenTo = 1;
+                int laSoNguyenTo = 1;
                 for (int i = 2; i <= (int)sqrt(n); i++) {
                     if (n % i == 0) {
-                        laNguyenTo = 0;
+                        laSoNguyenTo = 0;
                         break;
                     }
                 }
-                if (laNguyenTo)
-                    printf("La so nguyen to.\n");
+                if (laSoNguyenTo)
+                    printf(" So nay la so nguyen to\n");
                 else
-                    printf("Khong phai so nguyen to.\n");
+                    printf("So nay Khong phai so nguyen to\n");
             }
             // Kt so chinh pguong
             int g = (int)sqrt(n);
             if (g * g == n)
-                printf("La so chinh phuong.\n");
+                printf("So nay la so chinh phuong.\n");
             else
-                printf("Khong phai so chinh phuong.\n");
+                printf("So nay khong phai so chinh phuong.\n");
         }
-        else {
-            printf("So nay khong phai so nguyen.\n");
-            printf("Khong the kiem tra so nguyen to va so chinh phuong.\n");
-        }
+       
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
         scanf("%d", &i);
         system("cls");
@@ -55,6 +53,7 @@ void TimUocSoChungVaBoiSoChungCua2so() {
     int i = 1;
     while (i == 1)
     {
+        printf("Ban dang o chuc nang: Tim Uoc So Chung Va Boi So Chung Cua 2so\n");
         int x, y;
         printf("Nhap vao 2 so nguyen x va y: ");
         scanf("%d %d", &x, &y);
@@ -70,8 +69,7 @@ void TimUocSoChungVaBoiSoChungCua2so() {
         int bcnn = (x * y) / ucln;
         printf("Uoc chung lon nhat cua %d va %d la: %d\n", x, y, ucln);
         printf("Boi chung nho nhat cua %d va %d la: %d\n", x, y, bcnn);
-        return 0;
-        printf("Ban dang o chuc nang: TimUocSoChungVaBoiSoChungCua2so\n");
+        
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
         scanf("%d", &i);
         system("cls");
@@ -81,7 +79,7 @@ void ChuongTrinhTinhTienchoQuanKareoke() {
     int i = 1;
     while (i == 1)
     {
-        printf("Ban dang o chuc nang:  ChuongTrinhTinhTienchoQuanKareoke\n");
+        printf("(Ban dang o chuc nang:  Chuong trinh tinh tien Cho Quan Kareoke)\n\n");
         int batdau, ketthuc;
         printf("Nhap gio bat dau (khung gio tu 12-23): ");
         scanf("%d", &batdau);
@@ -89,8 +87,11 @@ void ChuongTrinhTinhTienchoQuanKareoke() {
         scanf("%d", &ketthuc);
 
         if (batdau < 12 || ketthuc > 23 || batdau >= ketthuc) {
-            printf("Gio khong hop le!\n");
-            return;
+            printf("Ban Da Nhap Sai Du Lieu!\n\n");
+            printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
+            scanf("%d", &i);
+            system("cls");
+            continue;
         }
 
         int gio = ketthuc - batdau;
@@ -101,11 +102,13 @@ void ChuongTrinhTinhTienchoQuanKareoke() {
 
         if (batdau >= 14 && batdau <= 17)
             tien *= 0.9;
-        printf("Tien Karaoke: %.0f VND\n", tien);
+        printf("Tien Karaoke: %.0f VND\n\n", tien);
+
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
         scanf("%d", &i);
         system("cls");
     }
+    
 }
 void TinhTienDien() {
     int i = 1;
@@ -179,8 +182,14 @@ void ChuongTrinhVayTienMuaXe() {
     while (i == 1)
     {
         double phantram;
-        printf("Nhap %% vay toi da (vd 80): ");
+        printf("Nhap %% vay toi da (vd 80%% - la tra truoc 20%% gia tri, tra gop 80%% gia tri): ");
         scanf("%lf", &phantram);
+        if (phantram >= 100 || phantram <= 0) {
+            printf("Loi: phan tram vay phai lon hon 0%% va nho hon 100%% \n");
+            printf("Xin moi ban nhap lai %% vay: \n");
+            continue;
+            
+        }
         double xe = 500000000;
         double vay = xe * phantram / 100;
         double traTruoc = xe - vay;
@@ -376,19 +385,19 @@ int main()
     do
     {
 
-        printf("MENU CHUC NANG LAM VIEC"); printf(" \n");
-        printf("1. KiemTraSoNguyen  "); printf("\n");
-        printf("2. TimUocChungVaBoiSoCua2So "); printf("\n");
-        printf("3. TinhTienchoQuanKareoke  "); printf("\n");
-        printf("4. TinhTienDien  "); printf("\n");
-        printf("5.ChucNangDoiTien  "); printf("\n");
-        printf("6. TinhLaiSuatVayNganHangTraGop "); printf("\n");
-        printf("7. ChuongTrinhVayMuaXe "); printf("\n");
-        printf("8. SapXepThongTinSinhVien "); printf("\n");
-        printf("9. GameFPOLY_LOTT "); printf("\n");
-        printf("10. TinhToanPhanSo "); printf("\n");
-        printf("0. thoat "); printf("\n");
-        printf("vui long chon chuc nang: ");
+        printf("MENU CHUC NANG LAM VIEC\n");
+        printf("1. Kiem Tra So Nguyen\n"); 
+        printf("2. Tim  Uoc Chung Va Boi So Cua 2 So\n"); 
+        printf("3. Tinh Tien Cho Quan Kareoke\n"); 
+        printf("4. Tinh Tien Dien\n"); 
+        printf("5.Chuc Nang Doi Tien\n"); 
+        printf("6. Tinh Lai Suat Vay Ngan Hang Tra Gop\n"); 
+        printf("7. Chuong Trinh Vay Mua Xe\n"); 
+        printf("8. Sap Xep Thong Tin Sinh Vien\n"); 
+        printf("9. Game FPOLY_LOTT\n"); 
+        printf("10. Tinh Toan Phan So\n"); 
+        printf("0. thoat\n"); 
+        printf("Xin Moi Ban Chon Chuc Nang Cho Truong Trinh: ");
         scanf("%d", &chon);
         system("cls");
         if (chon == 0) {
