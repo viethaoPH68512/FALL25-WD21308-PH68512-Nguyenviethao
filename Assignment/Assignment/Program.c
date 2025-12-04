@@ -5,18 +5,16 @@
 #include <stdio.h>
 #include <math.h>
 void KiemTraSoNguyen() {
-    int i = 1;
-    while (i == 1)
+    int tieptuc;
+    do
     {
         printf("( Ban dang o chuc nang: kiem tra so nguyen )\n\n");
         double x;
         printf("Hay nhap mot so de kiem tra: ");
         scanf("%lf", &x);
-        // Kiem tra so nguye
         if (x == (int)x) {
             printf("So nay la so nguyen\n");
             int n = (int)x;
-            // Kt so nguyen to
             if (n < 2) {
                 printf("Khong phai so nguyen to\n");
             }
@@ -33,7 +31,6 @@ void KiemTraSoNguyen() {
                 else
                     printf("So nay Khong phai so nguyen to\n");
             }
-            // Kt so chinh pguong
             int g = (int)sqrt(n);
             if (g * g == n)
                 printf("So nay la so chinh phuong.\n");
@@ -42,22 +39,21 @@ void KiemTraSoNguyen() {
         }
        
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
-        scanf("%d", &i);
+        scanf("%d", &tieptuc);
         system("cls");
 
-    }
+    } while (tieptuc == 1);
 
         
 }
 void TimUocSoChungVaBoiSoChungCua2so() {
-    int i = 1;
-    while (i == 1)
+    int tieptuc;
+   do
     {
         printf("Ban dang o chuc nang: Tim Uoc So Chung Va Boi So Chung Cua 2so\n");
         int x, y;
         printf("Nhap vao 2 so nguyen x va y: ");
         scanf("%d %d", &x, &y);
-        // Tìm UCLN
         int a = x, b = y;
         while (b != 0) {
             int tmp = b;
@@ -65,19 +61,18 @@ void TimUocSoChungVaBoiSoChungCua2so() {
             a = tmp;
         }
         int ucln = a;
-        // Tính BCNN
         int bcnn = (x * y) / ucln;
-        printf("Uoc chung lon nhat cua %d va %d la: %d\n", x, y, ucln);
-        printf("Boi chung nho nhat cua %d va %d la: %d\n", x, y, bcnn);
+        printf("Uoc so chung lon nhat cua %d va %d la: %d\n", x, y, ucln);
+        printf("Boi so chung nho nhat cua %d va %d la: %d\n", x, y, bcnn);
         
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
-        scanf("%d", &i);
+        scanf("%d", &tieptuc);
         system("cls");
-    }
+   } while (tieptuc == 1);
 }
 void ChuongTrinhTinhTienchoQuanKareoke() {
-    int i = 1;
-    while (i == 1)
+    int tieptuc;
+   do
     {
         printf("(Ban dang o chuc nang:  Chuong trinh tinh tien Cho Quan Kareoke)\n\n");
         int batdau, ketthuc;
@@ -87,9 +82,9 @@ void ChuongTrinhTinhTienchoQuanKareoke() {
         scanf("%d", &ketthuc);
 
         if (batdau < 12 || ketthuc > 23 || batdau >= ketthuc) {
-            printf("Ban Da Nhap Sai Du Lieu!\n\n");
+            printf("Ban hay nhap gio trong khoang (12 - 23)!\n\n");
             printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
-            scanf("%d", &i);
+            scanf("%d", &tieptuc);
             system("cls");
             continue;
         }
@@ -105,14 +100,14 @@ void ChuongTrinhTinhTienchoQuanKareoke() {
         printf("Tien Karaoke: %.0f VND\n\n", tien);
 
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
-        scanf("%d", &i);
+        scanf("%d", &tieptuc);
         system("cls");
-    }
+   } while (tieptuc == 1);
     
 }
 void TinhTienDien() {
-    int i = 1;
-    while (i == 1)
+    int tieptuc;
+   do
     {
         int kwh;
         printf("Nhap so dien su dung (kwh): ");
@@ -129,35 +124,36 @@ void TinhTienDien() {
         printf("Tien dien la: %.0f VND\n", tien); 
         printf("Ban dang o chuc nang: TinhTienDien\n");
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
-        scanf("%d", &i);
+        scanf("%d", &tieptuc);
         system("cls");
-    }
+   } while (tieptuc == 1);
 }
 void ChucNangDoiTien() 
 {
-    int i = 1;
-    while (i == 1)
+    int tieptuc;
+    do
     {
+        int tien, soto;
         int menhgia[] = { 500,200,100,50,20,10,5,2,1 };
-        int tien;
-        printf("Nhap so tien can doi: ");
+        printf("Nhap tien can doi: ");
         scanf("%d", &tien);
         for (int i = 0; i < 9; i++) {
-            int soTo = tien / menhgia[i];
-            if (soTo > 0) {
-                printf("%d to menh gia %d\n", soTo, menhgia[i]);
-                tien %= menhgia[i];
+            if (tien >= menhgia[i]) {
+                soto = tien / menhgia[i];
+                tien = tien % menhgia[i];
+                printf("%d to menh gia %d\n", soto, menhgia[i]);
             }
+
         }
         printf("Ban dang o chuc nang: ChucNangDoiTien\n");
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
-        scanf("%d", &i);
+        scanf("%d", &tieptuc);
         system("cls");
-    }
+    } while (tieptuc == 1);
 }
 void ChucNangTinhlaiSuatVayNganHangTraGop() {
-    int i = 1;
-    while (i == 1)
+    int tieptuc;
+    do
     {
         double sotienvay;
         printf("Nhap so tien can vay: ");
@@ -173,13 +169,13 @@ void ChucNangTinhlaiSuatVayNganHangTraGop() {
         }
         printf("Ban dang o chuc nang:  ChucNangTinhlaiSuatVayNganHangTraGop\n");
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
-        scanf("%d", &i);
+        scanf("%d", &tieptuc);
         system("cls");
-    }
+    } while (tieptuc == 1);
 }
 void ChuongTrinhVayTienMuaXe() {
-    int i = 1;
-    while (i == 1)
+    int tieptuc = 1;
+    do
     {
         double phantram;
         printf("Nhap %% vay toi da (vd 80%% - la tra truoc 20%% gia tri, tra gop 80%% gia tri): ");
@@ -193,7 +189,7 @@ void ChuongTrinhVayTienMuaXe() {
         double xe = 500000000;
         double vay = xe * phantram / 100;
         double traTruoc = xe - vay;
-        int thang = 24 * 12; //24 nam
+        int thang = 24 * 12;
         double laiThang = 0.072 / 12;
         double gocThang = vay / thang;
         printf("Tra truoc: %.0f VND\n", traTruoc);
@@ -207,15 +203,16 @@ void ChuongTrinhVayTienMuaXe() {
         }
         printf("Ban dang o chuc nang: ChuongTrinhVayTienMuaXe\n");
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
-        scanf("%d", &i);
+        scanf("%d", &tieptuc);
         system("cls");
-    }
+    } while (tieptuc == 1);
 }
 void SapXepThongTinSinhVien() {
-    int i = 1;
-    while (i == 1)
+    int tieptuc;
+    do
     {
-       
+        printf("Ban dang o chuc nang: SapXepThongTinSinhVien\n");
+        printf("LUU Y KHI NHAP DIEM ( 0-10 )\n");
         char hoTen[100][50];   
         float diem[100];       
         char hocLuc[100][20];  
@@ -226,14 +223,31 @@ void SapXepThongTinSinhVien() {
         getchar();
         for (int i = 0; i < n; i++) {
             printf("\nNhap thong tin sinh vien thu %d:\n", i + 1);
-
             printf("Ho va ten: ");
             fgets(hoTen[i], sizeof(hoTen[i]), stdin);
-            hoTen[i][strcspn(hoTen[i], "\n")] = 0; 
-
+            hoTen[i][strcspn(hoTen[i], "\n")] = 0;
+            while(1){
             printf("Diem: ");
             scanf("%f", &diem[i]);
-            getchar(); 
+            getchar();
+            if (diem[i] < 0 || diem[i]>10) {
+                printf("So diem nhap khong <0 va >10\n");
+                printf("ban co muon thuc hien lai hay khong[1-Co| khhac-Khong]: ");
+                scanf("%d", &tieptuc);
+                getchar();
+                system("cls");
+                if (tieptuc == 1) {
+                    continue; 
+                }
+                else {
+                    return;
+                 
+                }
+                
+            }
+            break;
+            
+            }
 
             if (diem[i] >= 9.0)
                 strcpy(hocLuc[i], "Xuat sac");
@@ -246,23 +260,17 @@ void SapXepThongTinSinhVien() {
             else
                 strcpy(hocLuc[i], "Yeu");
         }
-
         // sap xep giam dan
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
                 if (diem[i] < diem[j]) {
-                    // doi diem
                     float tempDiem = diem[i];
                     diem[i] = diem[j];
                     diem[j] = tempDiem;
-
-                    // doi ten
                     char tempTen[50];
                     strcpy(tempTen, hoTen[i]);
                     strcpy(hoTen[i], hoTen[j]);
                     strcpy(hoTen[j], tempTen);
-
-                    // doi hoc luc
                     char tempHocLuc[20];
                     strcpy(tempHocLuc, hocLuc[i]);
                     strcpy(hocLuc[i], hocLuc[j]);
@@ -270,23 +278,18 @@ void SapXepThongTinSinhVien() {
                 }
             }
         }
-
-        // danh sach
         printf("\n%-25s %-6s %-12s\n", "Ho va ten", "Diem", "Hoc luc");
         for (int i = 0; i < n; i++) {
             printf("%-25s %-6.2f %-12s\n", hoTen[i], diem[i], hocLuc[i]);
         }
-    }
-        return 0;
-        printf("Ban dang o chuc nang: SapXepThongTinSinhVien\n");
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
-        scanf("%d", &i);
+        scanf("%d", &tieptuc);
         system("cls");
-    
+    } while (tieptuc == 1);
 }
 void XayDungGameFPOLY_LOTT() {
-    int i = 1;
-    while (i == 1)
+    int tieptuc;
+    do
     {
         int a, b;
         printf("Nhap 2 so tu 1-15: ");
@@ -305,13 +308,13 @@ void XayDungGameFPOLY_LOTT() {
         else printf("Chuc ban may man lan sau!\n");
         printf("Ban dang o chuc nang: GameFPOLY_LOTT\n");
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
-        scanf("%d", &i);
+        scanf("%d", &tieptuc);
         system("cls");
-    }
+    } while (tieptuc == 1);
 }
 void tinhtoanphanso() {
-    int i = 1;
-    while (i == 1)
+    int tieptuc;
+    do
     {
         int tu1, mau1, tu2, mau2;
         printf("Nhap phan so thu nhat (tu/mau): ");
@@ -375,9 +378,9 @@ void tinhtoanphanso() {
         }
         printf("Ban dang o chuc nang: tinhtoanphanso\n");
         printf("ban co muon thuc hien Tiep Tuc hay khong[1-Co| khhac-Khong]");
-        scanf("%d", &i);
+        scanf("%d", &tieptuc);
         system("cls");
-    }
+    } while (tieptuc == 1);
 }
 int main()
 {
