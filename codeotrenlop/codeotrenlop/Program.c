@@ -3,6 +3,7 @@
 //conti tuong tu break nhung se dung cac lenh sau no neu dat du dieu kien ma minh dat ra
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 #define PI 3.14159   // Khai báo hằng số PI
 // ham void khong co gia tri tham so dau vao va khong co gia tri tra ve
 void TinhHinhTron()
@@ -351,6 +352,53 @@ void demomang2chieu() {
 	}
 
 }
+void demostring() {
+	//string - "string.h"
+	
+	
+	while (getchar() != '\n');
+		
+
+	char mangkytu[50];
+	printf("nhap du lieu: ");
+	fgets(mangkytu, sizeof(mangkytu), stdin);
+
+	printf("%s", mangkytu);
+	printf("\n");
+	//kieu dua du lieu xuong dong
+
+	//printf("string length: ");
+	//printf("%d", strlen(mangkytu)-1);
+	//printf("\n");
+	//printf("string compare Less than: ");//ss lon hon
+	//printf("%d", strcmp("A", "B"));
+	//printf("\n");
+	//printf("string compare greater than: ");// ss nho hon
+	//printf("%d", strcmp("B", "A"));
+	//printf("\n");
+	printf("string reverse: ");
+	printf("%s", strrev(mangkytu));
+	printf("\n");
+	printf("string reverse: ");
+	printf("%s", strrev(mangkytu));
+	printf("\n");
+	printf("string upper: ");
+
+
+
+	printf("%s", strrev(mangkytu));
+	printf("\n");
+	printf("string upper: ");
+	printf("%s", strrev(mangkytu));
+	printf("\n");
+	printf("find string in string: ");
+	if (strstr(mangkytu, "A") != NULL) {
+		printf("found:");
+		printf("%s", strrev(mangkytu), "A"));
+	}
+	
+	//chuoi %s
+}
 int main()
 {
 	int chon;
@@ -367,9 +415,10 @@ int main()
 		printf("7. tinhtrunngbinhtongcuasochiahetcho2 "); printf("\n");
 		printf("8. xacdinhsonguyento "); printf("\n");
 		printf("9. sochinhphuong "); printf("\n");
-		printf("10.lapchucnang "); printf("\n");
-		printf("11.mang1chieu "); printf("\n");
-		printf("12.mang2chieu "); printf("\n");
+		printf("10. lapchucnang "); printf("\n");
+		printf("11. mang1chieu "); printf("\n");
+		printf("12. mang2chieu "); printf("\n");
+		printf("13. string "); printf("\n");
 		printf("0. thoat "); printf("\n");
 		printf("vui long chon chuc nang: ");
 		scanf("%d", &chon);
@@ -412,6 +461,9 @@ int main()
 				break;
 		case 12:
 				demomang2chieu();
+				break;
+		case 13:
+				demostring();
 				break;
 			case 0:
 				printf("Thoat chuong trinh\n");
