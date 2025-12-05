@@ -1,4 +1,4 @@
-// CConsoleApplication.c : file nay chua 'main' function. 
+﻿// CConsoleApplication.c : file nay chua 'main' function. 
 // Chuong trinh phan mem Bat dau thuc thi & Ket thuc o day.
 
 #include <stdio.h>
@@ -91,11 +91,15 @@ void lapChucNang(int chonChucNang)
 		case 2:
 			sapxepmang1chieu();
 			break;
+		case 3:
+			tinhhocluc();
+			break;
+		
 
 		case 0:
 			return;
 		default:
-			printf("Hay chon lai [0-2]");
+			printf("Hay chon lai [0-3]");
 			break;
 		}
 
@@ -105,7 +109,33 @@ void lapChucNang(int chonChucNang)
 		system("cls");
 	}
 }
+void tinhhocluc() {
+	float diem;
 
+	do {
+		printf("Nhap diem cua sinh vien (0-10): ");
+		scanf("%f", &diem);
+
+		if (diem < 0 || diem > 10) {
+			printf("Loi! Vui long nhap diem trong khoang 0-10.\n");
+		}
+	} while (diem < 0 || diem > 10);
+
+	printf("Hoc luc: ");
+
+	if (diem >= 9)
+		printf("Xuat sac\n");
+	else if (diem >= 8)
+		printf("Gioi\n");
+	else if (diem >= 6.5)
+		printf("Kha\n");
+	else if (diem >= 5)
+		printf("Trung binh\n");
+	else if (diem >= 3.5)
+		printf("Yeu\n");
+	else
+		printf("Kem\n");
+}
 int main()
 {
 	int chonChucNang;
@@ -117,7 +147,9 @@ int main()
 		printf("\n");
 		printf("2. sap xeo mang 1 chieu thu tu tang dan");
 		printf("\n");
-		printf("Hay chon CN [0-2]: ");
+		printf("3. tinh hoc luc");
+		printf("\n");
+		printf("Hay chon CN [0-3]: ");
 		scanf("%d", &chonChucNang);
 		lapChucNang(chonChucNang);
 	} while (chonChucNang != 0);
