@@ -1,4 +1,4 @@
-// CConsoleApplication.c : file nay chua 'main' function. 
+﻿// CConsoleApplication.c : file nay chua 'main' function. 
 // Chuong trinh phan mem Bat dau thuc thi & Ket thuc o day.
 
 #include <stdio.h>
@@ -47,9 +47,45 @@ void tinhtong() {
 }
 void thongtincuahang() {
 	
-	int soluong;
-	
+	int n;
+	printf("Nhap so luong thu cung: ");
+	scanf("%d", &n);
+	if (n <= 0) {
+		printf("So luong thu cung phai lon hon 0\n");
+		return;
+	}
+	float* weights = (float*)malloc(n * sizeof(float));
+	if (weights == NULL) {
+		printf("Khong the cap phat bo nho\n");
+		return;
+	}
+	float totalWeight = 0.0;
+	float minWeight = 10000.0;
+	printf("Nhap can nang cho %d thu cung:\n", n);
+	for (int i = 0; i < n; i++) {
+		printf("Can nang thu cung %d: ", i + 1);
+		scanf("%f", &weights[i]);
+		totalWeight += weights[i];
+		if (weights[i] < minWeight) {
+			minWeight = weights[i];
+		}
+	}
+	float avgWeight = totalWeight / n;
+	int countBelowAvg = 0;
+	for (int i = 0; i < n; i++) {
+		if (weights[i] < avgWeight) {
+			countBelowAvg++;
+		}
+	}
+	printf("\nCan nang trung binh: %.2f\n", avgWeight);
+	printf("Can nang thap nhat: %.2f\n", minWeight);
+	printf("So thu cưng nang duoi muc trung binh: %d\n", countBelowAvg);
+
+
+	free(weights);
 }
+	
+
 void lapChucNang(int chonChucNang)
 {
 	int tiepTuc = 1;
@@ -86,7 +122,7 @@ int main()
 	int chonChucNang;
 	do
 	{
-		printf("Menu");
+		printf("/Menu");
 		printf("\n");
 		printf("1. thong tin thu cung");
 		printf("\n");
