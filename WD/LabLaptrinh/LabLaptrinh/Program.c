@@ -94,8 +94,6 @@ void lapChucNang(int chonChucNang)
 		case 3:
 			tinhhocluc();
 			break;
-		
-
 		case 0:
 			return;
 		default:
@@ -110,11 +108,11 @@ void lapChucNang(int chonChucNang)
 	}
 }
 void tinhhocluc() {
-	float diem;
+	int diem;
 
 	do {
 		printf("Nhap diem cua sinh vien (0-10): ");
-		scanf("%f", &diem);
+		scanf("%d", &diem);
 
 		if (diem < 0 || diem > 10) {
 			printf("Loi! Vui long nhap diem trong khoang 0-10.\n");

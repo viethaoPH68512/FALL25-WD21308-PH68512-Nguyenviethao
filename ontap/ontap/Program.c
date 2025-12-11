@@ -1,10 +1,54 @@
 // CConsoleApplication.c : file nay chua 'main' function. 
 // Chuong trinh phan mem Bat dau thuc thi & Ket thuc o day.
 
-
 #include <stdio.h>
+struct thongtinthucung{
+	char ma[30];
+	char ten[30];
+	int namsinh;
+};
 void thongtinthucung() {
 
+		struct thongtinthucung thucung[3];
+		int namhientai = 2025;
+		for (int i = 0; i < 3; i++) {
+			printf("nhap thong tin \n");
+			printf("ma thu cung: ");
+			scanf("%s", &thucung[i].ma);
+			printf("ten thu cung: ");
+			scanf("%s", &thucung[i].ten);
+			printf("nam sinh: ");
+			scanf("%s", &thucung[i].namsinh);
+
+		}
+		for (int i = 0; i < 3; i++) {
+			printf("Ma: %s | Ten: %s | Nam sinh: %d\n",
+				thucung[i].ma, thucung[i].ten, thucung[i].namsinh);
+		}
+		for (int i = 0; i < 3; i++) {
+			int tuoi = namhientai - thucung[i].namsinh;
+			printf("Thu cung %s (ma %s) co tuoi: %d\n",
+				thucung[i].ten, thucung[i].ma, tuoi);
+		}
+	
+}
+void tinhtong() {
+		int n;
+		int tongsole = 0;
+			printf("nhap mot so nguyen duong(n>3): ");
+			scanf("%d", &n);
+			getchar();
+			printf("tong cac so le tu 1 den %d la\n");
+			for (int i = 1; i <= n; i+=2) {
+				tongsole += i;
+			}
+			printf("tong cac so tu 1 den %d la: %d\n", n, tongsole);
+
+}
+void thongtincuahang() {
+	
+	int soluong;
+	
 }
 void lapChucNang(int chonChucNang)
 {
@@ -17,7 +61,10 @@ void lapChucNang(int chonChucNang)
 			thongtinthucung();
 			break;
 		case 2:
-			();
+			tinhtong();
+			break;
+		case 3:
+			thongtincuahang();
 			break;
 
 		case 0:
@@ -28,7 +75,7 @@ void lapChucNang(int chonChucNang)
 		}
 
 		printf("\n");
-		printf("Tiep tuc CN nay? [1=Co | 0=Khong]: ");
+		printf("Tiep tuc chuc nag khong [1=Co | khac=Khong]: ");
 		scanf("%d", &tiepTuc);
 		system("cls");
 	}
