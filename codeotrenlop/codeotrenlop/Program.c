@@ -475,8 +475,9 @@ int main()
 
 
 
+		for ) {
 
-
+		}
 
 
 		// nhap vong lap trong tung lenh tinh toan "while"

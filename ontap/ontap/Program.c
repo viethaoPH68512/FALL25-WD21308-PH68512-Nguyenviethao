@@ -47,42 +47,42 @@ void tinhtong() {
 }
 void thongtincuahang() {
 	
-	int n;
+	int soLuong;
+
 	printf("Nhap so luong thu cung: ");
-	scanf("%d", &n);
-	if (n <= 0) {
-		printf("So luong thu cung phai lon hon 0\n");
+	scanf("%d", &soLuong);
+	if (soLuong <= 0) {
+		printf("So luong thu cung phai lon hon 0!\n");
 		return;
 	}
-	float* weights = (float*)malloc(n * sizeof(float));
-	if (weights == NULL) {
-		printf("Khong the cap phat bo nho\n");
+	float* canNang = (float*)malloc(soLuong * sizeof(float));
+	if (canNang == NULL) {
+		printf("Khong the cap phat bo nho!\n");
 		return;
 	}
-	float totalWeight = 0.0;
-	float minWeight = 10000.0;
-	printf("Nhap can nang cho %d thu cung:\n", n);
-	for (int i = 0; i < n; i++) {
-		printf("Can nang thu cung %d: ", i + 1);
-		scanf("%f", &weights[i]);
-		totalWeight += weights[i];
-		if (weights[i] < minWeight) {
-			minWeight = weights[i];
+	float tong = 0.0;
+	float nhoNhat = 999999.0;
+	printf("\nNhap can nang cua %d thu cung:\n", soLuong);
+	for (int i = 0; i < soLuong; i++) {
+		printf("Thu cung %d can nang: ", i + 1);
+		scanf("%f", &canNang[i]);
+		tong += canNang[i];
+		if (canNang[i] < nhoNhat) {
+			nhoNhat = canNang[i];
 		}
 	}
-	float avgWeight = totalWeight / n;
-	int countBelowAvg = 0;
-	for (int i = 0; i < n; i++) {
-		if (weights[i] < avgWeight) {
-			countBelowAvg++;
+	float trungBinh = tong / soLuong;
+	int demThapHonTB = 0;
+	for (int i = 0; i < soLuong; i++) {
+		if (canNang[i] < trungBinh) {
+			demThapHonTB++;
 		}
 	}
-	printf("\nCan nang trung binh: %.2f\n", avgWeight);
-	printf("Can nang thap nhat: %.2f\n", minWeight);
-	printf("So thu cưng nang duoi muc trung binh: %d\n", countBelowAvg);
-
-
-	free(weights);
+	printf("\n=== KET QUA ===\n");
+	printf("Can nang trung binh: %.2f\n", trungBinh);
+	printf("Can nang thap nhat: %.2f\n", nhoNhat);
+	printf("So thu cung co can nang thap hon trung binh: %d\n", demThapHonTB);
+	free(canNang);
 }
 	
 
